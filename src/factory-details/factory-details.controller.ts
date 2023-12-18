@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { FactoryDetailsService } from './factory-details.service';
 import { CreateFactoryDetailDto } from './dto/create-factory-detail.dto';
 import { UpdateFactoryDetailDto } from './dto/update-factory-detail.dto';
@@ -23,7 +31,10 @@ export class FactoryDetailsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateFactoryDetailDto: UpdateFactoryDetailDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateFactoryDetailDto: UpdateFactoryDetailDto,
+  ) {
     return this.factoryDetailsService.update(+id, updateFactoryDetailDto);
   }
 
@@ -33,7 +44,9 @@ export class FactoryDetailsController {
   }
 
   @Post('/add')
-  async addColumn(@Body() columnData: { columnName: string; columnType: string }) {
+  async addColumn(
+    @Body() columnData: { columnName: string; columnType: string },
+  ) {
     const { columnName, columnType } = columnData;
     return this.factoryDetailsService.addColumn(columnName, columnType);
   }
