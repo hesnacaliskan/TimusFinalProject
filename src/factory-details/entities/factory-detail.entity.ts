@@ -9,7 +9,7 @@ export class FactoryDetail {
     @Column({type : 'text'})
     usingUnit : string;
    
-    @CreateDateColumn( {type : 'daterange',default: () => "'[01/01/2023, 31/12/2023)'"})
+    @CreateDateColumn( {type : 'daterange',default: () => "'[01/01/2023, 12/31/2023)'"})
     dateRange : string;
     
     @Column()
